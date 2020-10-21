@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <title>Node File Uploads</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Video Upload</h2>
+    <%= typeof msg != 'undefined' ? msg : '' %>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <div class="file-field input-field">
+        <div class="btn grey">
+          <span>File</span>
+          <input name="videoUpload" type="file" accept=".mp3, .mp4, .mpeg">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <br>
+    <video class="responsive-img" controls>
+      <source src="<%= typeof file != 'undefined' ? file : '' %>" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+<br />
+<hr />
+  <div class="container">
+    <h2>Image Upload</h2>
+    <%= typeof msg != 'undefined' ? msg : '' %>
+    <form action="/upload-image" method="POST" enctype="multipart/form-data">
+      <div class="file-field input-field">
+        <div class="btn grey">
+          <span>File</span>
+          <input name="imageUpload" type="file" accept=".png, .gif, .jpg, .jpeg, .pdf">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <br>
+ <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img"> 
+  </div>
+  <br/>
+  <hr />
+
+  <div class="container">
+    <h2>Document Upload</h2>
+    <%= typeof msg != 'undefined' ? msg : '' %>
+    <form action="/upload-doc" method="POST" enctype="multipart/form-data">
+      <div class="file-field input-field">
+        <div class="btn grey">
+          <span>File</span>
+          <input name="docUpload" type="file" accept=".pdf, .doc, .docx, .ppt, .pptx">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <br>
+    <iframe src="<%= typeof file != 'undefined' ? file : '' %>" height="315" width="560" allowfullscreen="" frameborder="0"></iframe>
+  </div>
+<br />
+<hr/>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+
+</html>
